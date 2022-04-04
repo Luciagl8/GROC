@@ -143,3 +143,11 @@ df = df[['Severity','Time','Device_Name','Device','Type','Action','Service',
     'Traffic_Source','Traffic_Destination','Source Port', 'Destination Port',
     'Source Zone','Destination Zone','Interface Name','User','Id','Connection Direction']]
 df.to_csv("practica_sys.syslog", header=None, index=None, sep=' ')
+
+f = open("practica_sys.syslog", "r")
+texto_comillas = f.read()
+texto_comillas = re.sub("\"", "", texto_comillas)
+
+f = open("practica_sys.syslog", "w")
+f.write(texto_comillas)
+f.close()
